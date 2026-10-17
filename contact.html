@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Request a Demo — BrandiQue Voice AI</title>
+<meta name="description" content="Request a demo of a custom AI voice assistant for your business, or discuss your use case with us." />
+<link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">B</span><span data-config="brandName">BrandiQue Voice AI</span></a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="navLinks" aria-label="Open menu">☰</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="industries.html">Industries</a></li>
+      <li><a href="how-it-works.html">How It Works</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html" class="btn btn-primary" style="padding:10px 22px;font-size:.92rem" aria-current="page">Request a Demo</a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero" style="padding:64px 0 10px">
+    <div class="wrap center">
+      <span class="kicker">Contact</span>
+      <h1>Request a demo</h1>
+      <p class="lead" style="margin:0 auto">Tell us about your business and your calls. We'll get back within one business day with next steps — or a demo conversation built around your use case.</p>
+    </div>
+  </section>
+
+  <section class="block" style="padding-top:30px">
+    <div class="wrap">
+      <div class="contact-cards">
+        <div class="card reveal"><div class="icon" aria-hidden="true">✉️</div><h3>Email</h3><p><a class="big" data-config="email" href="mailto:">hello@example.com</a></p></div>
+        <div class="card reveal"><div class="icon" aria-hidden="true">📞</div><h3>Phone</h3><p><a class="big" data-config="phoneDisplay" href="tel:">+91-XXXXXXXXXX</a></p></div>
+        <div class="card reveal"><div class="icon" aria-hidden="true">💬</div><h3>WhatsApp</h3><p><a class="big" data-config-href="whatsapp" href="https://wa.me/">Chat with us</a></p></div>
+      </div>
+
+      <div class="form-card reveal">
+        <div class="form-note" role="note">
+          <strong>Demo form notice:</strong> this form does not send your details anywhere yet.
+          Connect a form service (see README) to receive enquiries — or contact us directly using the details above.
+        </div>
+        <form id="demoForm" novalidate>
+          <div class="form-grid">
+            <div class="field">
+              <label for="fName">Your name <span class="req" aria-hidden="true">*</span></label>
+              <input id="fName" name="name" type="text" autocomplete="name" required minlength="2" />
+              <span class="err-msg">Please enter your name.</span>
+            </div>
+            <div class="field">
+              <label for="fBusiness">Business name</label>
+              <input id="fBusiness" name="business" type="text" autocomplete="organization" />
+              <span class="err-msg"></span>
+            </div>
+            <div class="field">
+              <label for="fContact">Email or phone <span class="req" aria-hidden="true">*</span></label>
+              <input id="fContact" name="contact" type="text" autocomplete="email" required placeholder="you@example.com or +91..." />
+              <span class="err-msg">Enter a valid email or phone number.</span>
+            </div>
+            <div class="field">
+              <label for="fIndustry">Industry</label>
+              <select id="fIndustry" name="industry">
+                <option value="">Select…</option>
+                <option>Real estate</option>
+                <option>Clinic / Healthcare</option>
+                <option>Coaching / Education</option>
+                <option>Hospitality</option>
+                <option>Customer support</option>
+                <option>Local services</option>
+                <option>Other</option>
+              </select>
+              <span class="err-msg"></span>
+            </div>
+            <div class="field full">
+              <label for="fNeed">What do you want the assistant to do?</label>
+              <textarea id="fNeed" name="need" rows="4" placeholder="e.g. We miss appointment calls after 8 PM. We want an assistant to book slots and take messages in Telugu."></textarea>
+              <span class="err-msg"></span>
+            </div>
+          </div>
+          <div class="field consent-field" style="margin-top:18px">
+            <label class="consent" for="fConsent" style="margin:0">
+              <input id="fConsent" type="checkbox" required />
+              <span>I agree to be contacted about my enquiry by email, phone or WhatsApp. <span class="req" aria-hidden="true">*</span></span>
+            </label>
+            <span class="err-msg">Please tick the consent box so we can reply to you.</span>
+          </div>
+          <button class="btn btn-primary" type="submit" style="width:100%;margin-top:8px">Send Demo Request</button>
+        </form>
+        <div class="form-success" id="formSuccess" role="status">
+          <div class="tick" aria-hidden="true">✓</div>
+          <h3>Thank you!</h3>
+          <p data-form-note style="color:var(--ink-soft)"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <a class="brand" href="index.html" style="margin-bottom:14px"><span class="brand-mark" aria-hidden="true">B</span><span data-config="brandName">BrandiQue Voice AI</span></a>
+        <p style="margin-top:12px"><span data-config="tagline">Custom AI voice assistants for businesses</span>.<br><span data-config="city">Visakhapatnam, India</span></p>
+      </div>
+      <div><h4>Pages</h4><ul><li><a href="services.html">Services</a></li><li><a href="industries.html">Industries</a></li><li><a href="how-it-works.html">How It Works</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="about.html">About</a></li></ul></div>
+      <div><h4>Contact</h4><ul><li><a href="contact.html">Request a Demo</a></li><li><a data-config="email" href="mailto:">hello@example.com</a></li><li><a data-config="phoneDisplay" href="tel:">+91-XXXXXXXXXX</a></li></ul></div>
+      <div><h4>Legal</h4><ul><li><a href="privacy.html">Privacy Policy</a></li><li><a href="terms.html">Terms of Service</a></li></ul></div>
+    </div>
+    <div class="bottom"><span>© <span data-year>2026</span> <span data-config="brandName">BrandiQue Voice AI</span>. All rights reserved.</span><span>Built with care in India.</span></div>
+  </div>
+</footer>
+<script src="assets/js/config.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
