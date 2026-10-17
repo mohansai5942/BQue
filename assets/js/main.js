@@ -113,10 +113,93 @@
     });
   }
 
+  /* ---- Interactive sample-call player (scripted demo, clearly illustrative) ---- */
+  var CALL_SCRIPT = [
+    { who: "ai", label: "AI ASSISTANT", text: "Good afternoon, thanks for calling Green Acres Realty. This is Aria, the virtual assistant. How can I help you today?" },
+    { who: "human", label: "CALLER", text: "Hi, I saw your listing for 3BHK flats in Gachibowli. What's the price range?" },
+    { who: "ai", label: "AI ASSISTANT", text: "Those start at ₹1.4 crore onwards, depending on the floor and facing. Are you looking to buy soon, or just exploring?" },
+    { who: "human", label: "CALLER", text: "Planning to buy within two months. Do you have east-facing units?" },
+    { who: "ai", label: "AI ASSISTANT", text: "Yes, a few east-facing units are available. Can I book a site visit for you this Saturday? We have 10 AM and 4 PM slots." },
+    { who: "human", label: "CALLER", text: "Saturday 10 AM works for me." },
+    { who: "ai", label: "AI ASSISTANT", text: "Done — site visit booked for Saturday at 10 AM. Our team will confirm on WhatsApp shortly. Anything else I can help with?" },
+    { who: "human", label: "CALLER", text: "That's all, thanks." }
+  ];
+  function initCallPlayer() {
+    var player = document.getElementById("callPlayer");
+    if (!player) return;
+    var convo = player.querySelector(".convo");
+    var btn = player.querySelector(".player-btn");
+    var timers = [];
+    function clear() {
+      timers.forEach(clearTimeout); timers = [];
+      convo.innerHTML = "";
+    }
+    function addLine(line, done) {
+      var d = document.createElement("div");
+      d.className = "bubble " + line.who;
+      var who = document.createElement("span"); who.className = "who"; who.textContent = line.label;
+      d.appendChild(who);
+      var typing = document.createElement("span"); typing.className = "typing"; typing.setAttribute("aria-hidden", "true");
+      typing.innerHTML = "<span></span><span></span><span></span>";
+      d.appendChild(typing);
+      convo.appendChild(d);
+      convo.scrollTop = convo.scrollHeight;
+      timers.push(setTimeout(function () {
+        d.removeChild(typing);
+        d.appendChild(document.createTextNode(line.text));
+        convo.scrollTop = convo.scrollHeight;
+        done();
+      }, line.who === "ai" ? 1100 : 800));
+    }
+    btn.addEventListener("click", function () {
+      clear();
+      btn.disabled = true;
+      btn.innerHTML = "▶ Playing…";
+      var i = 0;
+      (function next() {
+        if (i >= CALL_SCRIPT.length) {
+          btn.disabled = false;
+          btn.innerHTML = "↻ Replay sample call";
+          return;
+        }
+        addLine(CALL_SCRIPT[i++], function () {
+          timers.push(setTimeout(next, 650));
+        });
+      })();
+    });
+  }
+
+  /* ---- Missed-call cost estimator (math on the visitor's own inputs) ---- */
+  function initEstimator() {
+    var est = document.getElementById("estimator");
+    if (!est) return;
+    var missed = est.querySelector("#estMissed");
+    var value = est.querySelector("#estValue");
+    var rate = est.querySelector("#estRate");
+    var outCount = est.querySelector("#estOutCount");
+    var outValue = est.querySelector("#estOutValue");
+    function fmt(n) {
+      return "₹" + Math.round(n).toLocaleString("en-IN");
+    }
+    function calc() {
+      var m = Math.max(0, parseFloat(missed.value) || 0);
+      var v = Math.max(0, parseFloat(value.value) || 0);
+      var r = Math.min(100, Math.max(0, parseFloat(rate.value) || 0));
+      var monthly = m * 30;
+      var potential = monthly * (r / 100) * v;
+      outCount.textContent = Math.round(monthly).toLocaleString("en-IN");
+      outValue.textContent = fmt(potential);
+    }
+    [missed, value, rate].forEach(function (el) { el.addEventListener("input", calc); });
+    calc();
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
     applyConfig();
     initNav();
     initReveal();
     initForm();
+    initCallPlayer();
+    initEstimator();
   });
 })();

@@ -53,6 +53,25 @@
     </div>
   </section>
 
+  <!-- INTERACTIVE SAMPLE CALL -->
+  <section class="block" style="padding-top:10px;padding-bottom:20px">
+    <div class="wrap">
+      <div class="center">
+        <span class="kicker">See it in action</span>
+        <h2>Play a sample call</h2>
+        <p class="lead">A scripted illustration of how an assistant handles a real-estate enquiry — press play and read along.</p>
+      </div>
+      <div class="player reveal" id="callPlayer">
+        <div class="player-head">
+          <span class="art-label">Illustrative sample — not a real recording</span>
+          <button class="player-btn" type="button">▶ Play sample call</button>
+        </div>
+        <div class="convo" aria-live="polite" aria-label="Sample call transcript"></div>
+        <p class="caption" style="color:var(--dark-muted)">Every assistant we build follows a custom script like this one — written around your business, your offers and your rules.</p>
+      </div>
+    </div>
+  </section>
+
   <!-- SERVICES -->
   <section class="block" style="padding-top:20px">
     <div class="wrap">
@@ -86,6 +105,67 @@
         <div class="card reveal"><h3>Your team focuses on the work</h3><p>Routine questions and scheduling move to the assistant; your people handle the customers who truly need them.</p></div>
         <div class="card reveal"><h3>Built for how you operate</h3><p>Call flows follow your process — your services, your slots, your escalation rules. Not a generic bot.</p></div>
       </div>
+    </div>
+  </section>
+
+  <!-- ESTIMATOR -->
+  <section class="block" style="background:var(--bg-soft)">
+    <div class="wrap">
+      <div class="center">
+        <span class="kicker">Do the math</span>
+        <h2>What do missed calls cost you?</h2>
+        <p class="lead">Enter your own numbers — this is simple arithmetic on your inputs, not a promise.</p>
+      </div>
+      <div class="estimator reveal" id="estimator">
+        <div class="est-inputs">
+          <div class="field">
+            <label for="estMissed">Calls you miss per day</label>
+            <input id="estMissed" type="number" min="0" max="500" value="5" />
+          </div>
+          <div class="field">
+            <label for="estValue">Average value of one customer (₹)</label>
+            <input id="estValue" type="number" min="0" max="10000000" value="20000" />
+          </div>
+          <div class="field">
+            <label for="estRate">Enquiries you usually convert (%)</label>
+            <input id="estRate" type="number" min="0" max="100" value="15" />
+          </div>
+        </div>
+        <div class="est-result" aria-live="polite">
+          <div class="lbl">Missed enquiries / month</div>
+          <div class="big" id="estOutCount">150</div>
+          <div class="lbl">Indicative business at stake / month</div>
+          <div class="big" id="estOutValue">₹4,50,000</div>
+        </div>
+        <p class="est-note">Rough estimate from your inputs only. Real results depend on your market, offer and follow-up — we make no guarantees.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- DETAILED COMPARISON -->
+  <section class="block">
+    <div class="wrap">
+      <div class="center">
+        <span class="kicker">Compare honestly</span>
+        <h2>Assistant vs. the alternatives</h2>
+        <p class="lead">No hype — just how the three options differ on the things owners actually care about.</p>
+      </div>
+      <div class="table-scroll reveal">
+        <table class="cmp">
+          <thead><tr><th></th><th class="hl">AI voice assistant (done-for-you)</th><th>Hiring a telecaller</th><th>Doing nothing</th></tr></thead>
+          <tbody>
+            <tr><td>Answers after hours &amp; on busy lines</td><td class="hl win">Yes — 24×7 coverage</td><td>Only during shift hours</td><td>No</td></tr>
+            <tr><td>Consistency of answers</td><td class="hl win">Same scripted answers every time</td><td>Varies by person and mood</td><td>—</td></tr>
+            <tr><td>Speaks your customers' language</td><td class="hl win">Configured for your audience</td><td>Depends on who you hire</td><td>—</td></tr>
+            <tr><td>Lead details captured</td><td class="hl win">Structured, every call</td><td>Manual, often incomplete</td><td>Often lost</td></tr>
+            <tr><td>Handles call spikes</td><td class="hl win">Yes</td><td>One person = one call</td><td>No</td></tr>
+            <tr><td>Setup effort for you</td><td class="hl win">We do it — a few conversations</td><td>Recruit, train, manage</td><td>None</td></tr>
+            <tr><td>Cost shape</td><td class="hl">Project + support, quoted upfront</td><td>Salary + overhead, every month</td><td>₹0 — plus missed enquiries</td></tr>
+            <tr><td>Best when</td><td class="hl">Calls follow repeatable patterns</td><td>You need deep human judgement on every call</td><td>Call volume is truly tiny</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="caption center" style="margin-top:16px">A voice assistant isn't right for every business — if your calls need deep human judgement each time, a person is the better answer and we'll tell you so.</p>
     </div>
   </section>
 
@@ -139,6 +219,11 @@
         <details class="reveal"><summary>What happens when the AI can't handle a call?</summary><div class="a"><p>We build escalation rules together: transfer to your number, take a callback request, or log it for follow-up. You decide where the human line is.</p></div></details>
         <details class="reveal"><summary>Do I need to change my phone number?</summary><div class="a"><p>Not necessarily. During setup we discuss the best call-routing option for your business — in many cases your existing number keeps working as usual.</p></div></details>
         <details class="reveal"><summary>How much does it cost?</summary><div class="a"><p>It depends on your use case and call volume. See our <a href="pricing.html">pricing page</a> for how we structure quotes, or <a href="contact.html">request a demo</a> for a custom estimate.</p></div></details>
+        <details class="reveal"><summary>Do you work with businesses outside Andhra Pradesh &amp; Telangana?</summary><div class="a"><p>Yes — discovery, build and support all happen over call and screen-share. The assistant is configured for your customers' language wherever they are.</p></div></details>
+        <details class="reveal"><summary>Who owns the call recordings and data?</summary><div class="a"><p>You do. Data handling — what's recorded, how long it's kept, who can access it — is agreed in writing before launch. See our <a href="privacy.html">privacy policy</a> for the starter terms.</p></div></details>
+        <details class="reveal"><summary>What if I want to change what the assistant says later?</summary><div class="a"><p>That's part of the service. New services, changed timings, seasonal offers — send us the update and we reconfigure the assistant. Ongoing support plans cover this.</p></div></details>
+        <details class="reveal"><summary>Do I need new hardware or a new phone system?</summary><div class="a"><p>Usually not. During setup we work out call routing with your existing number and equipment. If anything extra is ever needed, we'll tell you before you spend a rupee.</p></div></details>
+        <details class="reveal"><summary>Can it do bulk promotional calling?</summary><div class="a"><p>For service-style outreach (reminders, follow-ups to your own enquiries) yes. For promotional bulk calling in India, DLT registration and consent rules apply — we'll guide you on what's compliant before any campaign.</p></div></details>
       </div>
     </div>
   </section>

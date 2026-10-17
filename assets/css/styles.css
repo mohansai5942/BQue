@@ -248,3 +248,84 @@ footer.site .bottom { border-top: 1px solid #2a2c33; padding-top: 24px; display:
   *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
   .reveal { opacity: 1; transform: none; }
 }
+
+/* ============================================================
+   ADVANCED COMPONENTS — call player, estimator, flow steps
+   ============================================================ */
+
+/* ---- Interactive sample-call player ---- */
+.player {
+  background: var(--dark); border-radius: 22px; padding: 30px; color: var(--dark-ink);
+  box-shadow: 0 24px 60px rgba(20, 21, 25, 0.18); max-width: 640px; margin: 36px auto 0;
+}
+.player-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px; }
+.player-head .art-label { font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--dark-muted); display: flex; align-items: center; gap: 8px; margin: 0; }
+.player-head .art-label::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--brand); }
+.player-btn {
+  background: var(--brand); color: var(--brand-ink); border: none; font-weight: 800;
+  padding: 11px 24px; border-radius: 999px; cursor: pointer; font-size: 0.95rem;
+  display: inline-flex; align-items: center; gap: 8px;
+}
+.player-btn:hover { transform: scale(1.04); }
+.player-btn:disabled { opacity: 0.55; cursor: default; transform: none; }
+.player .convo { min-height: 220px; }
+.player .bubble { animation: pop 0.3s ease; }
+@keyframes pop { from { opacity: 0; transform: translateY(10px); } }
+.typing { display: inline-flex; gap: 5px; padding: 6px 2px; }
+.typing span { width: 7px; height: 7px; border-radius: 50%; background: var(--dark-muted); animation: blink 1s infinite; }
+.typing span:nth-child(2) { animation-delay: 0.2s; }
+.typing span:nth-child(3) { animation-delay: 0.4s; }
+@keyframes blink { 0%, 100% { opacity: 0.25; } 50% { opacity: 1; } }
+
+/* ---- Missed-call cost estimator ---- */
+.estimator {
+  background: var(--card); border: 1px solid var(--line); border-radius: 22px;
+  padding: 38px; max-width: 760px; margin: 36px auto 0;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: center;
+}
+.est-inputs .field { margin-bottom: 18px; }
+.est-inputs input[type="number"] { width: 100%; }
+.est-result { background: var(--dark); color: var(--dark-ink); border-radius: 16px; padding: 30px; text-align: center; }
+.est-result .big { font-size: 2.2rem; font-weight: 800; color: var(--brand); letter-spacing: -0.02em; margin: 8px 0; }
+.est-result .lbl { font-size: 0.9rem; color: var(--dark-muted); }
+.est-note { grid-column: 1 / -1; font-size: 0.85rem; color: var(--muted); font-style: italic; margin: 0; }
+
+/* ---- Step flow (detailed) ---- */
+.flow { max-width: 780px; margin: 36px auto 0; display: flex; flex-direction: column; gap: 0; }
+.flow-step { display: grid; grid-template-columns: 52px 1fr; gap: 20px; position: relative; padding-bottom: 30px; }
+.flow-step::before {
+  content: ""; position: absolute; left: 25px; top: 56px; bottom: 0; width: 2px; background: var(--line);
+}
+.flow-step:last-child::before { display: none; }
+.flow-step .dot {
+  width: 52px; height: 52px; border-radius: 50%; background: var(--ink); color: #fff;
+  font-weight: 800; display: flex; align-items: center; justify-content: center; z-index: 1; flex-shrink: 0;
+}
+.flow-step .body h4 { margin: 6px 0 8px; font-size: 1.1rem; }
+.flow-step .body p, .flow-step .body li { color: var(--ink-soft); font-size: 0.97rem; }
+.flow-step .body ul { margin: 8px 0 0; padding-left: 20px; }
+
+/* ---- Detail blocks ---- */
+.detail-block { background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 36px; margin-top: 24px; }
+.detail-block h3 { font-size: 1.35rem; margin-bottom: 10px; }
+.detail-block p.lead-sm { color: var(--ink-soft); font-size: 1.02rem; }
+.detail-block ol { color: var(--ink-soft); padding-left: 22px; margin: 14px 0 0; }
+.detail-block ol li { margin-bottom: 10px; }
+.detail-block ol li strong { color: var(--ink); }
+
+/* ---- Wide comparison table ---- */
+.table-scroll { overflow-x: auto; margin-top: 32px; border: 1px solid var(--line); border-radius: 16px; }
+table.cmp { width: 100%; border-collapse: collapse; font-size: 0.95rem; min-width: 640px; margin: 0; }
+table.cmp th, table.cmp td { padding: 15px 18px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+table.cmp thead th { background: var(--bg-soft); font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.07em; color: var(--ink-soft); }
+table.cmp thead th.hl { background: var(--brand-soft); color: #7a6100; }
+table.cmp td.hl { background: #fffdf4; font-weight: 600; }
+table.cmp tr:last-child td { border-bottom: none; }
+.win { color: #8a6d00; font-weight: 700; }
+
+@media (max-width: 720px) {
+  .estimator { grid-template-columns: 1fr; padding: 28px 22px; }
+  .flow-step { grid-template-columns: 40px 1fr; gap: 14px; }
+  .flow-step::before { left: 19px; }
+  .flow-step .dot { width: 40px; height: 40px; font-size: 0.95rem; }
+}
